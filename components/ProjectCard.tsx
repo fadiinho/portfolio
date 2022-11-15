@@ -16,7 +16,7 @@ const StackBadge = ({ stack }: { stack: string }) => {
 }
 
 const GenericButton = ({ children, className, href }: { children: ReactNode | string, className: string, href: string }) => {
-  return <a target="_blank" className={`min-w-[6rem] py-1 px-2 text-center rounded  ${className}`} href={href}>{children}</a>
+  return <a target="_blank" rel="noreferrer" className={`min-w-[6rem] py-1 px-2 text-center rounded  ${className}`} href={href}>{children}</a>
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
