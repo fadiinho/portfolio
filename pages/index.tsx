@@ -85,7 +85,7 @@ export default function Home() {
           <SubTitle>about-me</SubTitle>
           <div className="p-2 flex flex-col sm:flex-row justify-between">
             <p className="text-secondary">
-              I&aposm a self-taught Fullstack Developer and I can develop full responsive websites from scratch.
+              I&apos;m a self-taught Fullstack Developer and I can develop full responsive websites from scratch.
             </p>
             <div className="w-[340px] h-[340px] bg-blend-lighten bg-background bg-no-repeat bg-center bg-cover bg-kanae-kocho-2"></div>
           </div>
@@ -94,8 +94,8 @@ export default function Home() {
           <SubTitle>contacts</SubTitle>
           <div className="p-2 flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-start sm:gap-0">
             <p className="text-secondary">
-              I&aposm interested in any freelance opportunities.
-              Don&apost hesitate to contact me.
+              I&apos;m interested in any freelance opportunities.
+              Don&apos;t hesitate to contact me.
             </p>
             <div className="p-2 border border-secondary border-opacity-50 rounded">
               <p className="font-semibold">Message me here</p>
