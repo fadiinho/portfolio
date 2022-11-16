@@ -1,15 +1,15 @@
 import Link from "next/link"
 import Head from "next/head";
 
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import ProjectCard, { Project } from "../components/ProjectCard"
-import Socials, { githubProfile, discordProfile } from "../components/Socials";
-import SkillCard from "../components/SkillCard";
+import Navbar from "@components/Navbar"
+import Footer from "@components/Footer"
+import Tooltip from "@components/Tooltip";
+import SkillCard from "@components/SkillCard";
+import ProjectCard, { Project } from "@components/ProjectCard"
+import Socials from "@components/Socials";
 
 import { AiOutlineArrowRight, AiOutlineMail } from "react-icons/ai"
 import { FaDiscord } from "react-icons/fa"
-import Tooltip from "../components/Tooltip";
 
 const projects: Project[] = [{
   name: "Rest Countries App",
