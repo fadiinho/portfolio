@@ -5,35 +5,14 @@ import Navbar from "@components/Navbar"
 import Footer from "@components/Footer"
 import Tooltip from "@components/Tooltip";
 import SkillCard from "@components/SkillCard";
-import ProjectCard, { Project } from "@components/ProjectCard"
+import ProjectCard from "@components/ProjectCard"
 import Socials from "@components/Socials";
 
 import { AiOutlineArrowRight, AiOutlineMail } from "react-icons/ai"
 import { FaDiscord } from "react-icons/fa"
-
-const projects: Project[] = [{
-  name: "Rest Countries App",
-  github: "https://github.com/fadiinho/rest-countries-api",
-  screenshot: "https://i.imgur.com/5MVvHvB.png",
-  description: "Website to search countries.",
-  liveDemo: "https://rest-countries-api-fadiinho.vercel.app",
-  stacks: ["React", "TailwindCSS", "Typescript", "NodeJS"]
-}, 
-{
-  name: "Rest Countries App 2",
-  github: "https://github.com/fadiinho/rest-countries-api",
-  screenshot: "https://i.imgur.com/5MVvHvB.png",
-  description: "Website to search countries.",
-  liveDemo: "https://rest-countries-api-fadiinho.vercel.app",
-  stacks: ["React", "TailwindCSS", "Typescript", "NodeJS"]
-}, {
-  name: "Rest Countries App 3",
-  github: "https://github.com/fadiinho/rest-countries-api",
-  screenshot: "https://i.imgur.com/5MVvHvB.png",
-  description: "Website to search countries.",
-  liveDemo: "https://rest-countries-api-fadiinho.vercel.app",
-  stacks: ["React", "TailwindCSS", "Typescript", "NodeJS"]
-}]
+import { GetServerSideProps } from "next";
+import { prisma } from "@lib/prisma";
+import { Project } from "@prisma/client";
 
 const SubTitle = ({ children, className }: { children: string, className?: string }) => {
   return (
@@ -44,7 +23,7 @@ const SubTitle = ({ children, className }: { children: string, className?: strin
   )
 }
 
-export default function Home() {
+export default function Home({ projects }: { projects: Project[] }) {
   return (
     <> 
       <Head>
@@ -123,4 +102,14 @@ export default function Home() {
       <Footer />
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const projects = await prisma.project.findMany({ take: 3 });
+
+  return {
+    props: {
+      projects
+    }
+  }
 }

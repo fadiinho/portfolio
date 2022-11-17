@@ -1,13 +1,5 @@
+import { Project } from "@prisma/client";
 import { ReactNode } from "react";
-
-export interface Project {
-  name: string;
-  github: string;
-  screenshot: string;
-  description: string;
-  stacks: string[];
-  liveDemo?: string;
-}
 
 const StackBadge = ({ stack }: { stack: string }) => {
   return (
@@ -22,9 +14,11 @@ const GenericButton = ({ children, className, href }: { children: ReactNode | st
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="max-w-xs max-h-96 border border-opacity-50 border-secondary rounded overflow-hidden">
-      <div className="w-full">
-        <img src={project.screenshot} alt="Project Screenshot" />
-      </div>
+      {project.screenshotUrl &&
+        <div className="w-full">
+          <img src={project.screenshotUrl} alt="Project Screenshot" />
+        </div>
+      }
       <div className="flex flex-wrap justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
         {project.stacks.map((stack) => <StackBadge key={stack} stack={stack} />)}
       </div>
