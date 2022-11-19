@@ -1,13 +1,12 @@
 import Link from "next/link"
 import Head from "next/head";
 
-import Navbar from "@components/Navbar"
-import Footer from "@components/Footer"
 import Tooltip from "@components/Tooltip";
 import SkillCard from "@components/SkillCard";
 import ProjectCard from "@components/ProjectCard"
 import Socials from "@components/Socials";
 import ProjectPlaceholder from "@components/ProjectPlaceholder";
+import SubTitle from "@components/SubTitle";
 
 import { AiOutlineArrowRight, AiOutlineMail } from "react-icons/ai"
 import { FaDiscord } from "react-icons/fa"
@@ -15,28 +14,13 @@ import { GetServerSideProps } from "next";
 import { prisma } from "@lib/prisma";
 import { Project } from "@prisma/client";
 
-const SubTitle = ({ children, className }: { children: string, className?: string }) => {
-  return (
-    <h2 className={`my-2 font-bold text-xl tracking-widest sm:text-2xl ${className ?? ""}`}>
-      <span className="text-primary">#</span>
-      {children}
-    </h2>
-  )
-}
-
 export default function Home({ projects }: { projects: Project[] }) {
   return (
     <> 
       <Head>
         <title>Home</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Navbar />
       <main className="m-4 px-2 sm:m-0 sm:max-w-screen-lg flex flex-col gap-8">
-        <Socials className="hidden left-2 top-0 sm:flex sm:flex-col sm:absolute sm:gap-4 sm:items-center">
-          <div className="w-1 h-52 bg-secondary sm:opacity-50"></div>
-        </Socials>
         <section className="my-8 sm:flex sm:flex-row sm:justify-center sm:gap-8">
           <div className="max-w-2xl sm:flex sm:flex-col sm:justify-center sm:gap-4 whitespace-normal">
             <h1 className="my-2 text-4xl font-bold">Emerson do Amaral (aka Fadiinho) is a <span className="text-primary">fullstack</span> developer.</h1>
@@ -105,7 +89,6 @@ export default function Home({ projects }: { projects: Project[] }) {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

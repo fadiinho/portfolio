@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className={`${menuOpen ? "" : "translate-x-full"} w-screen sm:w-auto py-8 sm:p-0 sm:translate-y-0 sm:translate-x-0 transition-transform translate-y-14 inset-0 bottom-auto absolute sm:static bg-background sm:flex flex-col justify-between`}>
         <ul className="w-full sm:w-fit flex flex-col sm:flex-row sm:justify-end sm:items-end sm:gap-8">
           <Navitem href="/" text="home" />
-          <Navitem href="/works" text="works" />
+          <Navitem href="/projects" text="projects" />
           <Navitem href="/about-me" text="about-me" />
           <Navitem href="/contacts" text="contacts" />
         </ul>

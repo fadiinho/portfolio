@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       }
       <div className="flex flex-wrap justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
-        {project.stacks.map((stack) => <StackBadge key={stack} stack={stack} />)}
+        {(project.stacks as string[]).map((stack) => <StackBadge key={stack} stack={stack} />)}
       </div>
       <div className="p-2 text-center flex flex-col justify-center">
         <h3 className="text-lg font-semibold tracking-wider">{project.name}</h3>

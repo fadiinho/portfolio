@@ -23,5 +23,5 @@ body {
 
 #__next {
   min-height: 100%;
-  @apply flex flex-col items-center justify-center gap-4;
+  @apply flex flex-col items-center gap-4;
 }
