@@ -16,20 +16,30 @@ export default function Socials ({ className, children }: { className?: string, 
       {children ?? ""}
       <Tooltip text="Open Github Profile" className="translate-x-12 -translate-y-4">
         <a
+          tabIndex={-1}
           onClick={copyProfile}
           target="_blank"
           rel="noreferrer"
           href={githubProfile}>
-          <AiFillGithub className="cursor-pointer text-secondary hover:text-white" size="42"/>
+          <AiFillGithub
+            tabIndex={-1}
+            className="cursor-pointer text-secondary hover:text-white"
+            size="42"
+          />
         </a>
       </Tooltip>
       <Tooltip text="Copy Discord Tag" className="translate-x-12 -translate-y-4">
         <a
+          tabIndex={-1}
           target="_blank"
           rel="noreferrer"
           onClick={copyProfile}
         >
-          <FaDiscord className="cursor-pointer text-secondary hover:text-white" size="42"/>
+          <FaDiscord
+            tabIndex={-1}
+            className="cursor-pointer text-secondary hover:text-white"
+            size="42"
+          />
         </a>
       </Tooltip>
     </div>
