@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
     signOut: "/",
     error: '/'
   },
-  debug: true
+  debug: process.env.NODE_ENV !== "production"
 }
 
 
