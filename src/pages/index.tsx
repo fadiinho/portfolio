@@ -24,12 +24,34 @@ const SubTitle = ({ children, className }: { children: string, className?: strin
 }
 
 export default function Home({ projects }: { projects: Project[] }) {
+  const handleNewProject = async () => {
+    const projects: Partial<Project> = {
+      name: "Rest Countries App",
+      github: "https://github.com/fadiinho/rest-countries-api",
+      screenshotUrl: "https://i.imgur.com/5MVvHvB.png",
+      description: "Website to search countries.",
+      liveDemo: "https://rest-countries-api-fadiinho.vercel.app",
+      stacks: ["React", "TailwindCSS", "Typescript", "NodeJS"]
+    }
+
+    await fetch("/api/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(projects)
+    });
+  }
+
   return (
     <> 
       <Head>
         <title>Home</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar />
+      <button className="p-1 border border-primary hover:bg-primary hover:bg-opacity-20 rounded"  onClick={handleNewProject}>Add new Project</button>
       <main className="m-4 px-2 sm:m-0 sm:max-w-screen-lg flex flex-col gap-8">
         <Socials className="hidden left-2 top-0 sm:flex sm:flex-col sm:absolute sm:gap-4 sm:items-center">
           <div className="w-1 h-52 bg-secondary sm:opacity-50"></div>
@@ -50,7 +72,7 @@ export default function Home({ projects }: { projects: Project[] }) {
             </Link>
           </div>
           <div className="w-full flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
-            {projects.map((project) => <ProjectCard key={project.name} project={project} />)}
+            {projects.map((project) => <ProjectCard key={project.id} project={project} />)}
           </div>
         </section>
         <section id="skills" className="flex flex-col justify-center items-center">
