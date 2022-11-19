@@ -7,6 +7,7 @@ import Tooltip from "@components/Tooltip";
 import SkillCard from "@components/SkillCard";
 import ProjectCard from "@components/ProjectCard"
 import Socials from "@components/Socials";
+import ProjectPlaceholder from "@components/ProjectPlaceholder";
 
 import { AiOutlineArrowRight, AiOutlineMail } from "react-icons/ai"
 import { FaDiscord } from "react-icons/fa"
@@ -53,6 +54,9 @@ export default function Home({ projects }: { projects: Project[] }) {
           </div>
           <div className="w-full flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
             {projects && projects?.map((project) => <ProjectCard key={project.id} project={project} />)}
+            {!projects && (
+              Array.from({ length: 3 }).map((_, i) => <ProjectPlaceholder key={i} />)
+            )}
           </div>
         </section>
         <section id="skills" className="flex flex-col justify-center items-center">
