@@ -9,11 +9,6 @@ type PrismaResponse = ReturnType<typeof prisma.project.create> | Error;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session = await unstable_getServerSession(req, res, authOptions);
 
-  if (!session) {
-    res.status(401).end();
-    return;
-  }
-
   switch (req.method) {
     case "GET":
       const projects = await prisma.project.findMany();
@@ -21,6 +16,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return projects;
 
     case "POST":
+      if (session?.user.role !==  "admin") {
+        res.status(401).end();
+        return;
+      }
+
       const data = req.body as Project;
 
       if (Object.keys(data).length < 4 && data.constructor === Object) {
