@@ -22,7 +22,7 @@ export default function Navbar() {
       <h1 className="text-lg sm:text-2xl font-bold flex items-center"><Logo />Fadiinho</h1>
 
       <div 
-        className={`${menuOpen ? "" : "translate-x-full"} w-screen sm:w-auto py-8 sm:p-0 sm:translate-y-0 sm:translate-x-0 transition-transform translate-y-14 inset-0 bottom-auto absolute sm:static bg-background sm:flex flex-col justify-between`}
+        className={`${menuOpen ? "" : "translate-x-full opacity-0"} w-screen sm:w-auto py-8 sm:p-0 sm:translate-y-0 sm:translate-x-0 transition-all translate-y-14 inset-0 bottom-auto absolute sm:static bg-background sm:flex flex-col justify-between`}
       >
         <ul 
           className="w-full sm:w-fit flex flex-col sm:flex-row sm:justify-end sm:items-end sm:gap-8">
