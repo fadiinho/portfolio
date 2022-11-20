@@ -2,7 +2,9 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "types": ["types/**/*"],
+  "types": [
+    "types/**/*"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -20,6 +22,7 @@
     "react-icons": "^4.6.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/node": "18.11.8",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
