@@ -13,10 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case "GET":
       const projects = await prisma.project.findMany();
 
-      return projects;
+      res.status(200).json(projects);
+      return;
 
     case "POST":
-      if (session?.user.role !==  "admin") {
+      if (!session || session.user.role !==  "admin") {
         res.status(401).end();
         return;
       }
