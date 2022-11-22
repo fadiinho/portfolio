@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Run and develop
 
-1. Close the repository
+1. Clone the repository
 2. Setup docker to make your development database.
 
 ```bash
