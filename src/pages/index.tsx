@@ -4,7 +4,6 @@ import Head from "next/head";
 import Tooltip from "@components/Tooltip";
 import SkillCard from "@components/SkillCard";
 import ProjectCard from "@components/ProjectCard"
-import Socials from "@components/Socials";
 import ProjectPlaceholder from "@components/ProjectPlaceholder";
 import SubTitle from "@components/SubTitle";
 
