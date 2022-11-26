@@ -37,13 +37,15 @@ export default function Projects({ projects }: { projects: Project[] }) {
 
         {!!smallProjects.length && (
           <div id="small-apps">
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-4">
               <SubTitle>small-projects</SubTitle>
-              {smallProjects?.map((project) => <ProjectCard key={project.id} project={project} />)}
+              <div className="flex flex-col gap-4 sm:flex-row">
+                {smallProjects?.map((project) => <ProjectCard key={project.id} project={project} />)}
 
-              {(!smallProjects?.length || smallProjects?.length < 3) && (
-                Array.from({ length: smallProjects.length ? 3 - smallProjects.length : 3 }).map((_, i) => <ProjectPlaceholder key={i} />)
-              )}
+                {(!smallProjects?.length || smallProjects?.length < 3) && (
+                  Array.from({ length: smallProjects.length ? 3 - smallProjects.length : 3 }).map((_, i) => <ProjectPlaceholder key={i} />)
+                )}
+              </div>
             </div>
           </div>
         )}
