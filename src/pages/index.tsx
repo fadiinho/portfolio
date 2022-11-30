@@ -45,7 +45,7 @@ export default function Home({ projects }: { projects: Project[] }) {
         <section id="skills" className="flex flex-col justify-center items-center">
           <SubTitle className="self-start">skills</SubTitle>
           <div className="sm:p-2 w-auto sm:w-full flex flex-col justify-center gap-4 sm:flex-row sm:justify-start">
-            <SkillCard title="Languages" skills={[ "TypeScript", "Javascript", "Lua", "Python", "Rust", "HTML", "CSS" ]}/>
+            <SkillCard title="Languages" skills={[ "TypeScript", "Javascript", "Lua", "Python", "Rust", "HTML", "CSS", "C#" ]}/>
             <SkillCard title="Frameworks" skills={[ "React", "Svelte", "Flask", "Discord.js", "Express.js", "NextJS", "p5js" ]}/>
           </div>
         </section>
