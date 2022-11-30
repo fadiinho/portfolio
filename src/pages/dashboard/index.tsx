@@ -1,40 +1,10 @@
 import Head from "next/head";
 
-import { GetServerSideProps } from "next/types";
-import { authOptions } from "@pages/api/auth/[...nextauth]";
-import { unstable_getServerSession } from "next-auth/next";
-
 import { HiOutlinePlusCircle, HiOutlineViewList, HiX } from "react-icons/hi";
 
 import { Navitem } from "@components/Navbar";
 import { useEffect, useState } from "react";
 import { Project } from "@prisma/client";
-
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const session = await unstable_getServerSession(req, res, authOptions);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false
-      }
-    }
-  }
-
-  if (session?.user.role !== "admin") {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false
-      }
-    }
-  }
-
-  return {
-    props: {}
-  }
-}
 
 export const Menu = () => {
   return (
