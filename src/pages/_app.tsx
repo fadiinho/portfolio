@@ -29,7 +29,7 @@ export default function App({
       </Head>
 
       <Socials className="hidden left-1.5 top-0 sm:flex sm:flex-col sm:absolute sm:gap-4 sm:items-center">
-        <div className="w-1 h-52 bg-secondary sm:opacity-50"></div>
+        <div className="w-px h-20 bg-secondary sm:opacity-50"></div>
       </Socials>
       <Navbar />
       <Component {...pageProps} />
