@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 
 import { HiOutlinePlusCircle, HiOutlineViewList, HiX } from "react-icons/hi";
 
@@ -30,7 +31,7 @@ const ProjectItem = ({ id, name, screenshotUrl, onClick, removeProject }: Projec
   return (
     <div onClick={() => onClick(id)} className="text-secondary text-center border border-secondary border-opacity-50 rounded relative flex flex-col">
       <HiX onClick={() => removeProject(id)} className="absolute right-0 hover:text-white" size="28" />
-      {screenshotUrl && ( <img className="w-44" src={screenshotUrl} alt={`${name} Screenshot`}/> )}
+      {screenshotUrl && ( <Image className="w-44" width="176" height="88" src={screenshotUrl} alt={`${name} Screenshot`}/> )}
       <div className="w-full px-2">
         <p className="text-ellipsis whitespace-nowrap overflow-hidden max-w-[160px]">{name}</p>
       </div>
