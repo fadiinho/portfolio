@@ -41,7 +41,7 @@ export function Input ({ name, placeholder, type, defaultValue, placeholderAlway
 }
 
 export const NewProjectForm = () => {
-  const { register, handleSubmit, formState: { errors }} = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors }, reset} = useForm<Inputs>();
   const [ isLoading, setIsLoading ] = useState(false);
 
   // TODO: Handle possible errors and show to the user
@@ -55,6 +55,7 @@ export const NewProjectForm = () => {
       body: JSON.stringify({ ..._data, stacks: _data.stacks.split(", ") })
     });
     setIsLoading(false)
+    reset()
   }
 
   return (

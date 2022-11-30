@@ -30,7 +30,7 @@ export const Menu = () => {
 const ProjectItem = ({ id, name, screenshotUrl, onClick, removeProject }: Project & { onClick: (id: string) => void, removeProject: (id: string) => void }) => {
   return (
     <div onClick={() => onClick(id)} className="text-secondary text-center border border-secondary border-opacity-50 rounded relative flex flex-col">
-      <HiX onClick={() => removeProject(id)} className="absolute right-0 hover:text-white" size="28" />
+      <HiX onClick={() => removeProject(id)} className="absolute right-0 hover:text-white cursor-pointer" size="28" />
       {screenshotUrl && ( <Image className="w-44" width="176" height="88" src={screenshotUrl} alt={`${name} Screenshot`}/> )}
       <div className="w-full px-2">
         <p className="text-ellipsis whitespace-nowrap overflow-hidden max-w-[160px]">{name}</p>
@@ -98,8 +98,14 @@ const ProjectItem = ({ id, name, screenshotUrl, onClick, removeProject }: Projec
 export default function Dashboard() {
   const [projects, setProjects] = useState<Project[]>([]);
 
-  const removeProject = () => {
-    // TODO: handle remove project
+  const removeProject = async (id: string) => {
+    const response = await fetch(`/api/projects/delete/${id}`, {
+      method: "DELETE"
+    });
+
+    if (response.ok) {
+      setProjects(prev => prev.filter((elem) => elem.id !== id ));
+    }
   }
 
   const getProjects = async () => {

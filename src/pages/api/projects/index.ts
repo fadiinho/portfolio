@@ -21,7 +21,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(401).end();
         return;
       }
-
       const data = req.body as Project;
 
       if (Object.keys(data).length < 4 && data.constructor === Object) {
