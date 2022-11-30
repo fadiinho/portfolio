@@ -27,7 +27,12 @@ export default function Navbar() {
 
   return (
     <nav className="p-4 sm:px-0 w-full sm:max-w-screen-lg flex justify-between items-end">
-      <h1 className="text-lg sm:text-2xl font-bold flex items-center"><Logo />Fadiinho</h1>
+      <h1 className="text-lg sm:text-2xl font-bold flex items-center cursor-row-resize">
+        <Logo />
+        <Link href="/">
+          Fadiinho
+        </Link>
+      </h1>
 
       <div 
         className={`${menuOpen ? "" : "translate-x-full opacity-0"} sm:opacity-100 w-screen sm:w-auto py-8 sm:p-0 sm:translate-y-0 sm:translate-x-0 transition-all translate-y-14 inset-0 bottom-auto absolute sm:static bg-background sm:flex flex-col justify-between z-10`}
