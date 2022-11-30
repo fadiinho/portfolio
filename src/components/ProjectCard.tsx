@@ -1,6 +1,8 @@
 import { Project } from "@prisma/client";
 import { ReactNode } from "react";
 
+const NO_SCREENSHOT_URL = "/assets/no_screenshot.png"
+
 const StackBadge = ({ stack }: { stack: string }) => {
   return (
     <p className="m-2 text-secondary">{stack}</p>
@@ -13,12 +15,17 @@ const GenericButton = ({ children, className, href }: { children: ReactNode | st
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="max-w-xs max-h-96 border border-opacity-50 border-secondary rounded overflow-hidden">
+    <div className="max-w-xs max-h-96 min-w-[320px] min-h-[340px] border border-opacity-50 border-secondary rounded overflow-hidden flex flex-col">
       {project.screenshotUrl &&
         <div className="w-full">
           <img src={project.screenshotUrl} alt="Project Screenshot" />
         </div>
       }
+      {!project.screenshotUrl && (
+        <div className="w-full">
+          <img src={NO_SCREENSHOT_URL} alt="No Screenshot" />
+        </div>
+      )}
       <div className="flex flex-wrap justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
         {(project.stacks as string[]).map((stack) => <StackBadge key={stack} stack={stack} />)}
       </div>

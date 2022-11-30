@@ -4,6 +4,9 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@lib/prisma";
 
 export const authOptions: NextAuthOptions = {
+  session: {
+    strategy: "jwt"
+  },
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
@@ -12,20 +15,25 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, user }) {
-      const dbUser = await prisma.user.findUnique({
-        where: {
-          id: user.id
-        }
-      }).catch((error) => error);
-
-      if (dbUser?.role) { 
-        session.user.role = dbUser.role;
+    async session({ session, token }) {
+      // @ts-ignore
+      if (token?.role) {
+        // @ts-ignore
+        session.user.role = token.role;
       } else {
         session.user.role = "user";
       }
 
       return session;
+    },
+    async jwt({ token, user }) {
+      // @ts-ignore
+      if (user && user?.role) {
+        // @ts-ignore
+        token.role = user.role;
+      }
+
+      return token;
     }
   },
   pages: {
