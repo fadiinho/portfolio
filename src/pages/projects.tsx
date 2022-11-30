@@ -25,7 +25,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
         {!!completeApps.length && (
           <div id="complete-apps" className="flex flex-col gap-2">
             <SubTitle>complete-apps</SubTitle>
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               {completeApps.map((project) => <ProjectCard key={project.id} project={project} />)}
 
               {(!completeApps.length || completeApps.length < 3) && (
