@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image src={NoScreenshotPng} alt="No Screenshot" />
         </div>
       )}
-      <div className="flex flex-wrap justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
+      <div className="flex flex-wrap min-height-[82px] justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
         {(project.stacks as string[]).map((stack) => <StackBadge key={stack} stack={stack} />)}
       </div>
       <div className="p-2 text-center flex flex-col justify-center">
