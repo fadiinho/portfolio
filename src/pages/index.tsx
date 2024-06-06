@@ -15,7 +15,7 @@ import { Project } from "@prisma/client";
 
 export default function Home({ projects }: { projects: Project[] }) {
   return (
-    <> 
+    <>
       <Head>
         <title>Home</title>
       </Head>
@@ -35,7 +35,7 @@ export default function Home({ projects }: { projects: Project[] }) {
               <AiOutlineArrowRight size="20"/>
             </Link>
           </div>
-          <div className="w-full flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+          <div className="w-full flex flex-col gap-4 items-center sm:flex-row sm:flex-wrap sm:justify-center sm:items-stretch">
             {projects && projects?.map((project) => <ProjectCard key={project.id} project={project} />)}
             {!projects && (
               Array.from({ length: 3 }).map((_, i) => <ProjectPlaceholder key={i} />)

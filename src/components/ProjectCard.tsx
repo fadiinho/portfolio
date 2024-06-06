@@ -15,7 +15,7 @@ const GenericButton = ({ children, className, href }: { children: ReactNode | st
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="max-w-xs max-h-96 min-w-[320px] min-h-[340px] border border-opacity-50 border-secondary rounded overflow-hidden flex flex-col">
+    <div className="max-w-xs max-h-96 min-w-[320px] border border-opacity-50 border-secondary rounded overflow-hidden flex flex-col">
       {project.screenshotUrl &&
         <div className="w-full">
           <Image
@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image src={NoScreenshotPng} alt="No Screenshot" />
         </div>
       )}
-      <div className="flex flex-wrap min-height-[82px] justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
+      <div className="flex flex-wrap flex-grow min-height-[82px] justify-center border border-opacity-50 border-secondary border-r-0 border-l-0">
         {(project.stacks as string[]).map((stack) => <StackBadge key={stack} stack={stack} />)}
       </div>
       <div className="p-2 text-center flex flex-col justify-center">
