@@ -1,6 +1,6 @@
 import '@styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Nunito } from "@next/font/google"
+import { Nunito } from "next/font/google"
 
 import { SessionProvider } from "next-auth/react";
 import Navbar from '@components/Navbar';

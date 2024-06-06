@@ -21,7 +21,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
         projects
         <p className="text-secondary text-sm font-normal">List of my projects</p>
       </SubTitle>
-      <section className="sm:min-w-[720px] flex flex-col gap-4 sm:gap-8 sm:flex-row">
+      <section className="sm:min-w-[720px] flex flex-col gap-4 sm:gap-8">
         {!!completeApps.length && (
           <div id="complete-apps" className="flex flex-col gap-2">
             <SubTitle>complete-apps</SubTitle>
